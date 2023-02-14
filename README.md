@@ -14,7 +14,9 @@ The application requires a few configuration steps before it can be used. Here a
 3. Session secret: The application uses sessions to keep users logged in. You'll need to set the SECRET environment variable to a secret string of your choice.
 
 # Working of Passport JS Local Strategy
-
+1. When a user submits their login credentials, the callback function defined in the LocalStrategy is invoked, and it receives the username and password entered by the user as arguments. The callback function should then use these credentials to check if the user exists in your application's database and if the password is correct.
+2. If the user is successfully authenticated, you should invoke the done function with the authenticated user object. If the user is not authenticated, you should invoke the done or CallBack function with false.
+3. If the user is successfully authenticated, Passport will automatically create a session for the user, and the user object will be stored in the req.user property. This will allow you to access the user's information in subsequent requests.
 
 # Usage
 To use the application, follow these steps:
